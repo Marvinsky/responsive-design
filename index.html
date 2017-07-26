@@ -110,6 +110,7 @@
         </form>
       </div>
     </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
     <script type="text/javascript">
       var consulta = window.matchMedia('(max-width:500px)');
@@ -138,7 +139,20 @@
         selector: 'img'
       });
 
+      function showMenu() {
+        $menu.classList.add("active");
+      }
 
+      function hideMenu() {
+        $menu.classList.remove("active");
+      }
+
+      //Using hammer gestures
+      var $body = document.body;
+      var gestos = new Hammer($body);
+      gestos.on('swipeleft', hideMenu);
+
+      gestos.on('swiperight', showMenu);
 
     </script>
 
